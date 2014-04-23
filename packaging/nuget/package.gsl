@@ -1,0 +1,260 @@
+.#  Generate NuGet nuspec file (for subsequent packing).
+.#
+.#  This is a code generator built using the iMatix GSL code generation
+.#  language. See https://github.com/imatix/gsl for details. This script
+.#  is licensed under MIT/X11.
+.#
+.echo "Generating package.nuspec from template."
+.output "package.nuspec"
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+#################################################################
+#   GENERATED SOURCE CODE, DO NOT EDIT EXCEPT EXPERIMENTALLY    #
+#################################################################
+-->
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+    <metadata minClientVersion="2.5">
+        <id>$(package.id)</id>
+        <version>$(package.version)</version>
+        <title>$(package.id)</title>
+        <authors>MPIR and GMP contributors</authors>
+        <owners>Eric Voskuil</owners>
+        <licenseUrl>https://raw.github.com/wbhart/mpir/master/COPYING</licenseUrl>
+        <projectUrl>http://www.mpir.org/</projectUrl>
+        <iconUrl>http://www.gnu.org/graphics/heckert_gnu.small.png</iconUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <developmentDependency>false</developmentDependency>
+        <description>GMP is a free library for arbitrary precision arithmetic, operating on signed integers, rational numbers, and floating-point numbers.</description>
+        <summary>MPIR is an open source multiprecision integer (bignum) library forked from the GMP (GNU Multi Precision) project.</summary>
+        <releaseNotes>http://www.mpir.org/#about</releaseNotes>
+        <copyright>GNU LGPL v3 or LGPL v2.1+</copyright>
+        <tags>native, GMP, MPIR, bignum, number, C++</tags>
+        <!-- Salt shaker icon by Dubravko Soric :
+        http://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Salt_shaker_on_white_background.jpg/220px-Salt_shaker_on_white_background.jpg -->
+    </metadata>
+    <files>
+        <!-- include -->
+                
+        <file src="..\\..\\gmp.h" target="build\\native\\include" />
+        <file src="..\\..\\mpir.h" target="build\\native\\include" />
+        <file src="..\\..\\mpirxx.h" target="build\\native\\include" />
+
+        <!-- targets -->
+      
+        <file src="package.targets" target="build\\native\\$(package.id).targets" />
+        <file src="package.xml" target="build\\native\\package.xml" />
+        
+        <!-- docs -->
+        
+        <!-- Documents (.*) -->
+        <!--<file src="..\\..\\docs\\*" target="build\\native\\docs" />-->
+        
+        <!-- libraries -->
+
+        <!-- x86 Dynamic C/C++ libraries (.dll) -->
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Release\\$(package.target).dll" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-$(package.pathversion).dll" />
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Debug\\$(package.target).dll" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-gd-$(package.pathversion).dll" />
+
+        <!-- x86 Dynamic Debugging symbols (.imp.pdb) -->
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Release\\$(package.target).imp.pdb" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-$(package.pathversion).pdb" />
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Debug\\$(package.target).imp.pdb" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-gd-$(package.pathversion).pdb" />
+
+        <!-- x86 Dynamic Import libraries (.imp.lib) -->
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Release\\$(package.target).imp.lib" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-$(package.pathversion).imp.lib" />
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Debug\\$(package.target).imp.lib" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-gd-$(package.pathversion).imp.lib" />
+
+        <!-- x86 Dynamic Export libraries (.imp.exp) -->
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Release\\$(package.target).imp.exp" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-$(package.pathversion).exp" />
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Debug\\$(package.target).imp.exp" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-gd-$(package.pathversion).exp" />
+
+        <!-- x86 Static C libraries (.lib) -->
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Release\\$(package.target).lib" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-s-$(package.pathversion).lib" />
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Debug\\$(package.target).lib" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-sgd-$(package.pathversion).lib" />
+        
+        <!-- x86 Static C Debugging symbols (.pdb) -->
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Release\\$(package.target).pdb" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-s-$(package.pathversion).pdb" />
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Debug\\$(package.target).pdb" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-sgd-$(package.pathversion).pdb" />
+        
+        <!-- x86 Static C++ libraries (xx.lib) -->
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Release\\$(package.target)xx.lib" target="build\\native\\bin\\$(package.target)xx-x86-$(package.platformtoolset)-mt-s-$(package.pathversion).lib" />
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Debug\\$(package.target)xx.lib" target="build\\native\\bin\\$(package.target)xx-x86-$(package.platformtoolset)-mt-sgd-$(package.pathversion).lib" />
+        
+        <!-- x86 Static C++ Debugging symbols (xx.pdb) -->
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Release\\$(package.target)xx.pdb" target="build\\native\\bin\\$(package.target)xx-x86-$(package.platformtoolset)-mt-s-$(package.pathversion).pdb" />
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Debug\\$(package.target)xx.pdb" target="build\\native\\bin\\$(package.target)xx-x86-$(package.platformtoolset)-mt-sgd-$(package.pathversion).pdb" />
+        
+        <!-- x64 Dynamic C/C++ libraries (.dll) -->
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Release\\$(package.target).dll" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-$(package.pathversion).dll" />
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Debug\\$(package.target).dll" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-gd-$(package.pathversion).dll" />
+
+        <!-- x64 Dynamic Debugging symbols (.imp.pdb) -->
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Release\\$(package.target).imp.pdb" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-$(package.pathversion).pdb" />
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Debug\\$(package.target).imp.pdb" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-gd-$(package.pathversion).pdb" />
+
+        <!-- x64 Dynamic Import libraries (.imp.lib) -->
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Release\\$(package.target).imp.lib" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-$(package.pathversion).imp.lib" />
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Debug\\$(package.target).imp.lib" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-gd-$(package.pathversion).imp.lib" />
+
+        <!-- x64 Dynamic Export libraries (.imp.exp) -->
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Release\\$(package.target).imp.exp" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-$(package.pathversion).exp" />
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Debug\\$(package.target).imp.exp" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-gd-$(package.pathversion).exp" />
+
+        <!-- x64 Static C libraries (.lib) -->
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Release\\$(package.target).lib" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-s-$(package.pathversion).lib" />
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Debug\\$(package.target).lib" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-sgd-$(package.pathversion).lib" />
+        
+        <!-- x64 Static C Debugging symbols (.pdb) -->
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Release\\$(package.target).pdb" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-s-$(package.pathversion).pdb" />
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Debug\\$(package.target).pdb" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-sgd-$(package.pathversion).pdb" />
+        
+        <!-- x64 Static C++ libraries (xx.lib) -->
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Release\\$(package.target)xx.lib" target="build\\native\\bin\\$(package.target)xx-x64-$(package.platformtoolset)-mt-s-$(package.pathversion).lib" />
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Debug\\$(package.target)xx.lib" target="build\\native\\bin\\$(package.target)xx-x64-$(package.platformtoolset)-mt-sgd-$(package.pathversion).lib" />
+        
+        <!-- x64 Static C++ Debugging symbols (xx.pdb) -->
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Release\\$(package.target)xx.pdb" target="build\\native\\bin\\$(package.target)xx-x64-$(package.platformtoolset)-mt-s-$(package.pathversion).pdb" />
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Debug\\$(package.target)xx.pdb" target="build\\native\\bin\\$(package.target)xx-x64-$(package.platformtoolset)-mt-sgd-$(package.pathversion).pdb" />        
+
+
+    </files>
+<!--
+#################################################################
+#   GENERATED SOURCE CODE, DO NOT EDIT EXCEPT EXPERIMENTALLY    #
+#################################################################
+-->
+</package>
+.echo "Generating package.targets from template."
+.output "package.targets"
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+#################################################################
+#   GENERATED SOURCE CODE, DO NOT EDIT EXCEPT EXPERIMENTALLY    #
+#################################################################
+-->
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- user interface -->
+  <ItemGroup>
+    <PropertyPageSchema Include="$\(MSBuildThisFileDirectory)package.xml" />
+  </ItemGroup>
+
+  <!-- general -->
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$\(MSBuildThisFileDirectory)include\\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$\(MSBuildThisFileDirectory)bin\\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$\(Linkage-$(package.target))' == 'dynamic'">
+    <ClCompile>
+      <PreprocessorDefinitions>MSC_USE_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+
+  <!-- static libraries -->
+  <ItemDefinitionGroup Condition="'$\(Platform)' == 'Win32' And ('$\(PlatformToolset)' == '$(package.platformtoolset)' Or '$\(PlatformToolset)' == 'CTP_Nov2013') And '$\(Linkage-$(package.target))' == 'static' And $\(Configuration.IndexOf('Release')) != -1">
+    <Link>
+      <AdditionalDependencies>$(package.target)-x86-$(package.platformtoolset)-mt-s-$(package.pathversion).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(package.target)xx-x86-$(package.platformtoolset)-mt-s-$(package.pathversion).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$\(Platform)' == 'Win32' And ('$\(PlatformToolset)' == '$(package.platformtoolset)' Or '$\(PlatformToolset)' == 'CTP_Nov2013') And '$\(Linkage-$(package.target))' == 'static' And $\(Configuration.IndexOf('Debug')) != -1">
+    <Link>
+      <AdditionalDependencies>$(package.target)-x86-$(package.platformtoolset)-mt-sgd-$(package.pathversion).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(package.target)xx-x86-$(package.platformtoolset)-mt-sgd-$(package.pathversion).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$\(Platform)' == 'x64' And ('$\(PlatformToolset)' == '$(package.platformtoolset)' Or '$\(PlatformToolset)' == 'CTP_Nov2013') And '$\(Linkage-$(package.target))' == 'static' And $\(Configuration.IndexOf('Release')) != -1">
+    <Link>
+      <AdditionalDependencies>$(package.target)-x64-$(package.platformtoolset)-mt-s-$(package.pathversion).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(package.target)xx-x64-$(package.platformtoolset)-mt-s-$(package.pathversion).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$\(Platform)' == 'x64' And ('$\(PlatformToolset)' == '$(package.platformtoolset)' Or '$\(PlatformToolset)' == 'CTP_Nov2013') And '$\(Linkage-$(package.target))' == 'static' And $\(Configuration.IndexOf('Debug')) != -1">
+    <Link>
+      <AdditionalDependencies>$(package.target)-x64-$(package.platformtoolset)-mt-sgd-$(package.pathversion).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(package.target)xx-x64-$(package.platformtoolset)-mt-sgd-$(package.pathversion).lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  
+  <!-- dynamic import libraries -->
+  <ItemDefinitionGroup Condition="'$\(Platform)' == 'Win32' And ('$\(PlatformToolset)' == '$(package.platformtoolset)' Or '$\(PlatformToolset)' == 'CTP_Nov2013') And '$\(Linkage-$(package.target))' == 'dynamic' And $\(Configuration.IndexOf('Release')) != -1">
+    <Link>
+      <AdditionalDependencies>$(package.target)-x86-$(package.platformtoolset)-mt-$(package.pathversion).imp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$\(Platform)' == 'Win32' And ('$\(PlatformToolset)' == '$(package.platformtoolset)' Or '$\(PlatformToolset)' == 'CTP_Nov2013') And '$\(Linkage-$(package.target))' == 'dynamic' And $\(Configuration.IndexOf('Debug')) != -1">
+    <Link>
+      <AdditionalDependencies>$(package.target)-x86-$(package.platformtoolset)-mt-gd-$(package.pathversion).imp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$\(Platform)' == 'x64' And ('$\(PlatformToolset)' == '$(package.platformtoolset)' Or '$\(PlatformToolset)' == 'CTP_Nov2013') And '$\(Linkage-$(package.target))' == 'dynamic' And $\(Configuration.IndexOf('Release')) != -1">
+    <Link>
+      <AdditionalDependencies>$(package.target)-x64-$(package.platformtoolset)-mt-$(package.pathversion).imp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$\(Platform)' == 'x64' And ('$\(PlatformToolset)' == '$(package.platformtoolset)' Or '$\(PlatformToolset)' == 'CTP_Nov2013') And '$\(Linkage-$(package.target))' == 'dynamic' And $\(Configuration.IndexOf('Debug')) != -1">
+    <Link>
+      <AdditionalDependencies>$(package.target)-x64-$(package.platformtoolset)-mt-gd-$(package.pathversion).imp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <!-- dynamic libraries with debug symbols -->
+  <Target Name="$(package.target)_AfterBuild" AfterTargets="AfterBuild" />
+  <Target Name="$(package.target)_AfterBuild_Win32_$(package.platformtoolset)_Dynamic_Release"
+          Condition="'$\(Platform)' == 'Win32' And ('$\(PlatformToolset)' == '$(package.platformtoolset)' Or '$\(PlatformToolset)' == 'CTP_Nov2013') And '$\(Linkage-$(package.target))' == 'dynamic' And $\(Configuration.IndexOf('Release')) != -1"
+          AfterTargets="$(package.target)_AfterBuild">
+    <Copy SourceFiles="$\(MSBuildThisFileDirectory)bin\\$(package.target)-x86-$(package.platformtoolset)-mt-$(package.pathversion).dll" DestinationFiles="$\(TargetDir)$(package.target).dll" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$\(MSBuildThisFileDirectory)bin\\$(package.target)-x86-$(package.platformtoolset)-mt-$(package.pathversion).pdb" DestinationFiles="$\(TargetDir)$(package.target).pdb" SkipUnchangedFiles="true" />
+  </Target>
+  <Target Name="$(package.target)_AfterBuild_Win32_$(package.platformtoolset)_Dynamic_Debug"
+          Condition="'$\(Platform)' == 'Win32' And ('$\(PlatformToolset)' == '$(package.platformtoolset)' Or '$\(PlatformToolset)' == 'CTP_Nov2013') And '$\(Linkage-$(package.target))' == 'dynamic' And $\(Configuration.IndexOf('Debug')) != -1"
+          AfterTargets="$(package.target)_AfterBuild">
+    <Copy SourceFiles="$\(MSBuildThisFileDirectory)bin\\$(package.target)-x86-$(package.platformtoolset)-mt-gd-$(package.pathversion).dll" DestinationFiles="$\(TargetDir)$(package.target).dll" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$\(MSBuildThisFileDirectory)bin\\$(package.target)-x86-$(package.platformtoolset)-mt-gd-$(package.pathversion).pdb" DestinationFiles="$\(TargetDir)$(package.target).pdb" SkipUnchangedFiles="true" />
+  </Target>
+  <Target Name="$(package.target)_AfterBuild_x64_$(package.platformtoolset)_Dynamic_Release"
+          Condition="'$\(Platform)' == 'x64' And ('$\(PlatformToolset)' == '$(package.platformtoolset)' Or '$\(PlatformToolset)' == 'CTP_Nov2013') And '$\(Linkage-$(package.target))' == 'dynamic' And $\(Configuration.IndexOf('Release')) != -1"
+          AfterTargets="$(package.target)_AfterBuild">
+    <Copy SourceFiles="$\(MSBuildThisFileDirectory)bin\\$(package.target)-x64-$(package.platformtoolset)-mt-$(package.pathversion).dll" DestinationFiles="$\(TargetDir)$(package.target).dll" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$\(MSBuildThisFileDirectory)bin\\$(package.target)-x64-$(package.platformtoolset)-mt-$(package.pathversion).pdb" DestinationFiles="$\(TargetDir)$(package.target).pdb" SkipUnchangedFiles="true" />
+  </Target>
+  <Target Name="$(package.target)_AfterBuild_x64_$(package.platformtoolset)_Dynamic_Debug"
+          Condition="'$\(Platform)' == 'x64' And ('$\(PlatformToolset)' == '$(package.platformtoolset)' Or '$\(PlatformToolset)' == 'CTP_Nov2013') And '$\(Linkage-$(package.target))' == 'dynamic' And $\(Configuration.IndexOf('Debug')) != -1"
+          AfterTargets="$(package.target)_AfterBuild">
+    <Copy SourceFiles="$\(MSBuildThisFileDirectory)bin\\$(package.target)-x64-$(package.platformtoolset)-mt-gd-$(package.pathversion).dll" DestinationFiles="$\(TargetDir)$(package.target).dll" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="$\(MSBuildThisFileDirectory)bin\\$(package.target)-x64-$(package.platformtoolset)-mt-gd-$(package.pathversion).pdb" DestinationFiles="$\(TargetDir)$(package.target).pdb" SkipUnchangedFiles="true" />
+  </Target>
+
+<!--
+#################################################################
+#   GENERATED SOURCE CODE, DO NOT EDIT EXCEPT EXPERIMENTALLY    #
+#################################################################
+-->
+</Project>
+.echo "Generating package.xml (ui extension) from template."
+.output "package.xml"
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+#################################################################
+#   GENERATED SOURCE CODE, DO NOT EDIT EXCEPT EXPERIMENTALLY    #
+#################################################################
+-->
+<ProjectSchemaDefinitions xmlns="clr-namespace:Microsoft.Build.Framework.XamlTypes;assembly=Microsoft.Build.Framework">
+  <Rule Name="Linkage-$(package.target)-uiextension" PageTemplate="tool" DisplayName="NuGet Dependencies" SwitchPrefix="/" Order="1">
+    <Rule.Categories>
+      <Category Name="$(package.target)" DisplayName="$(package.target)" />
+    </Rule.Categories>
+    <Rule.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="" />
+    </Rule.DataSource>
+    <EnumProperty Name="Linkage-$(package.target)" DisplayName="Linkage" Description="How NuGet $(package.target) will be linked into the output of this project" Category="$(package.target)">
+      <EnumValue Name="" DisplayName="Not linked" />
+      <EnumValue Name="dynamic" DisplayName="Dynamic (DLL)" />
+      <EnumValue Name="static" DisplayName="Static (LIB)" />
+      <EnumValue Name="ltcg" DisplayName="Static using link time compile generation (LTCG)" />
+    </EnumProperty>
+  </Rule>
+</ProjectSchemaDefinitions>
