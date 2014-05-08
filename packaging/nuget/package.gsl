@@ -115,7 +115,6 @@
         <file src="..\\..\\build.$(package.namespace)\\x64\\Release\\$(package.target)xx.pdb" target="build\\native\\bin\\$(package.target)xx-x64-$(package.platformtoolset)-mt-s-$(package.pathversion).pdb" />
         <file src="..\\..\\build.$(package.namespace)\\x64\\Debug\\$(package.target)xx.pdb" target="build\\native\\bin\\$(package.target)xx-x64-$(package.platformtoolset)-mt-sgd-$(package.pathversion).pdb" />        
 
-
     </files>
 <!--
 #################################################################
