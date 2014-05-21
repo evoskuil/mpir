@@ -29,8 +29,11 @@
         <releaseNotes>http://www.mpir.org/#about</releaseNotes>
         <copyright>GNU LGPL v3 or LGPL v2.1+</copyright>
         <tags>native, GMP, MPIR, bignum, number, C++</tags>
-        <!-- Salt shaker icon by Dubravko Soric :
-        http://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Salt_shaker_on_white_background.jpg/220px-Salt_shaker_on_white_background.jpg -->
+        <dependencies>
+.for dependency
+            <dependency id="$(id)" version="$(version)" />
+.endfor
+        </dependencies>
     </metadata>
     <files>
         <!-- include -->
@@ -60,12 +63,12 @@
         <file src="..\\..\\build.$(package.namespace)\\Win32\\Debug\\$(package.target).imp.pdb" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-gd-$(package.pathversion).pdb" />
 
         <!-- x86 Dynamic Import libraries (.imp.lib) -->
-        <file src="..\\..\\build.$(package.namespace)\\Win32\\Release\\$(package.target).imp.lib" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-$(package.pathversion).imp.lib" />
-        <file src="..\\..\\build.$(package.namespace)\\Win32\\Debug\\$(package.target).imp.lib" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-gd-$(package.pathversion).imp.lib" />
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Release\\$(package.target).lib" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-$(package.pathversion).imp.lib" />
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Debug\\$(package.target).lib" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-gd-$(package.pathversion).imp.lib" />
 
         <!-- x86 Dynamic Export libraries (.imp.exp) -->
-        <file src="..\\..\\build.$(package.namespace)\\Win32\\Release\\$(package.target).imp.exp" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-$(package.pathversion).exp" />
-        <file src="..\\..\\build.$(package.namespace)\\Win32\\Debug\\$(package.target).imp.exp" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-gd-$(package.pathversion).exp" />
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Release\\$(package.target).exp" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-$(package.pathversion).exp" />
+        <file src="..\\..\\build.$(package.namespace)\\Win32\\Debug\\$(package.target).exp" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-gd-$(package.pathversion).exp" />
 
         <!-- x86 Static C libraries (.lib) -->
         <file src="..\\..\\build.$(package.namespace)\\Win32\\Release\\$(package.target).lib" target="build\\native\\bin\\$(package.target)-x86-$(package.platformtoolset)-mt-s-$(package.pathversion).lib" />
@@ -92,12 +95,12 @@
         <file src="..\\..\\build.$(package.namespace)\\x64\\Debug\\$(package.target).imp.pdb" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-gd-$(package.pathversion).pdb" />
 
         <!-- x64 Dynamic Import libraries (.imp.lib) -->
-        <file src="..\\..\\build.$(package.namespace)\\x64\\Release\\$(package.target).imp.lib" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-$(package.pathversion).imp.lib" />
-        <file src="..\\..\\build.$(package.namespace)\\x64\\Debug\\$(package.target).imp.lib" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-gd-$(package.pathversion).imp.lib" />
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Release\\$(package.target).lib" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-$(package.pathversion).imp.lib" />
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Debug\\$(package.target).lib" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-gd-$(package.pathversion).imp.lib" />
 
         <!-- x64 Dynamic Export libraries (.imp.exp) -->
-        <file src="..\\..\\build.$(package.namespace)\\x64\\Release\\$(package.target).imp.exp" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-$(package.pathversion).exp" />
-        <file src="..\\..\\build.$(package.namespace)\\x64\\Debug\\$(package.target).imp.exp" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-gd-$(package.pathversion).exp" />
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Release\\$(package.target).exp" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-$(package.pathversion).exp" />
+        <file src="..\\..\\build.$(package.namespace)\\x64\\Debug\\$(package.target).exp" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-gd-$(package.pathversion).exp" />
 
         <!-- x64 Static C libraries (.lib) -->
         <file src="..\\..\\build.$(package.namespace)\\x64\\Release\\$(package.target).lib" target="build\\native\\bin\\$(package.target)-x64-$(package.platformtoolset)-mt-s-$(package.pathversion).lib" />
@@ -130,7 +133,7 @@
 #   GENERATED SOURCE CODE, DO NOT EDIT EXCEPT EXPERIMENTALLY    #
 #################################################################
 -->
-<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <!-- user interface -->
   <ItemGroup>
