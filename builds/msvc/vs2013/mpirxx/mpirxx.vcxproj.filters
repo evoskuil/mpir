@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src" />
+    <Filter Include="src\cxx" />
+    <Filter Include="include" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\config.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\gmp-impl.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\longlong.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\mpir.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\gmp-mparam.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\mpirxx.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\cxx\dummy.cc">
+      <Filter>src\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\cxx\isfuns.cc">
+      <Filter>src\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\cxx\ismpf.cc">
+      <Filter>src\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\cxx\ismpq.cc">
+      <Filter>src\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\cxx\ismpz.cc">
+      <Filter>src\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\cxx\ismpznw.cc">
+      <Filter>src\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\cxx\osdoprnti.cc">
+      <Filter>src\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\cxx\osfuns.cc">
+      <Filter>src\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\cxx\osmpf.cc">
+      <Filter>src\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\cxx\osmpq.cc">
+      <Filter>src\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\cxx\osmpz.cc">
+      <Filter>src\cxx</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

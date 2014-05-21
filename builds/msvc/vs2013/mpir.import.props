@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup Label="Globals">
+    <_PropertySheetDisplayName>MPIR Import Settings</_PropertySheetDisplayName>
+  </PropertyGroup>
+
+  <!-- User Interface -->
+  
+  <ItemGroup Label="BuildOptionsExtension">
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)mpir.import.xml" />
+  </ItemGroup>
+
+  <!-- Linkage -->
+
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\..\..\mpir\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions Condition="'$(Linkage-mpir)' == 'dynamic'">MSC_USE_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>mpir.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories Condition="$(Configuration.IndexOf('Debug')) != -1">$(ProjectDir)..\..\..\..\..\mpir\bin\$(PlatformName)\Debug\$(PlatformToolset)\$(Linkage-mpir)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="$(Configuration.IndexOf('Release')) != -1">$(ProjectDir)..\..\..\..\..\mpir\bin\$(PlatformName)\Release\$(PlatformToolset)\$(Linkage-mpir)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      
+      <AdditionalDependencies>mpirxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories Condition="$(Configuration.IndexOf('Debug')) != -1">$(ProjectDir)..\..\..\..\..\mpirxx\bin\$(PlatformName)\Debug\$(PlatformToolset)\$(Linkage-mpirxx)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories Condition="$(Configuration.IndexOf('Release')) != -1">$(ProjectDir)..\..\..\..\..\mpirxx\bin\$(PlatformName)\Release\$(PlatformToolset)\$(Linkage-mpirxx)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>      
+    </Link>
+  </ItemDefinitionGroup>
+
+  <!-- Copy -->
+
+  <Target Name="Linkage-mpir-dynamic" AfterTargets="AfterBuild" Condition="'$(Linkage-mpir)' == 'dynamic'">
+    <Copy Condition="$(Configuration.IndexOf('Debug')) != -1"
+          SourceFiles="$(ProjectDir)..\..\..\..\..\mpir\bin\$(PlatformName)\Debug\$(PlatformToolset)\dynamic\mpir.dll"
+          DestinationFiles="$(TargetDir)mpir.dll"
+          SkipUnchangedFiles="true" />
+    <Copy Condition="$(Configuration.IndexOf('Debug')) != -1"
+          SourceFiles="$(ProjectDir)..\..\..\..\..\mpir\bin\$(PlatformName)\Debug\$(PlatformToolset)\dynamic\mpir.pdb"
+          DestinationFiles="$(TargetDir)mpir.pdb"
+          SkipUnchangedFiles="true" />
+    <Copy Condition="$(Configuration.IndexOf('Release')) != -1"
+          SourceFiles="$(ProjectDir)..\..\..\..\..\mpir\bin\$(PlatformName)\Release\$(PlatformToolset)\dynamic\mpir.dll"
+          DestinationFiles="$(TargetDir)mpir.dll"
+          SkipUnchangedFiles="true" />
+  </Target>
+  
+  <Target Name="Linkage-mpirxx-dynamic" AfterTargets="AfterBuild" Condition="'$(Linkage-mpirxx)' == 'dynamic'">
+    <Copy Condition="$(Configuration.IndexOf('Debug')) != -1"
+          SourceFiles="$(ProjectDir)..\..\..\..\..\mpirxx\bin\$(PlatformName)\Debug\$(PlatformToolset)\dynamic\mpirxx.dll"
+          DestinationFiles="$(TargetDir)mpirxx.dll"
+          SkipUnchangedFiles="true" />
+    <Copy Condition="$(Configuration.IndexOf('Debug')) != -1"
+          SourceFiles="$(ProjectDir)..\..\..\..\..\mpirxx\bin\$(PlatformName)\Debug\$(PlatformToolset)\dynamic\mpirxx.pdb"
+          DestinationFiles="$(TargetDir)mpirxx.pdb"
+          SkipUnchangedFiles="true" />
+    <Copy Condition="$(Configuration.IndexOf('Release')) != -1"
+          SourceFiles="$(ProjectDir)..\..\..\..\..\mpirxx\bin\$(PlatformName)\Release\$(PlatformToolset)\dynamic\mpirxx.dll"
+          DestinationFiles="$(TargetDir)mpirxx.dll"
+          SkipUnchangedFiles="true" />
+  </Target>
+
+  <!-- Messages -->
+
+  <Target Name="mpir-info" BeforeTargets="AfterBuild" Condition="'$(Linkage-mpir)' == 'dynamic'">
+    <Message Text="Copying mpir.dll -&gt; $(TargetDir)mpir.dll" Importance="high"/>
+    <Message Text="Copying mpir.pdb -&gt; $(TargetDir)mpir.pdb" Importance="high" Condition="$(Configuration.IndexOf('Debug')) != -1" />
+  </Target>
+  
+  <Target Name="mpirxx-info" BeforeTargets="AfterBuild" Condition="'$(Linkage-mpirxx)' == 'dynamic'">
+    <Message Text="Copying mpirxx.dll -&gt; $(TargetDir)mpirxx.dll" Importance="high"/>
+    <Message Text="Copying mpirxx.pdb -&gt; $(TargetDir)mpirxx.pdb" Importance="high" Condition="$(Configuration.IndexOf('Debug')) != -1" />
+  </Target>
+
+</Project>
