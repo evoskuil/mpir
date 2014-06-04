@@ -19,11 +19,11 @@
       <PreprocessorDefinitions Condition="'$(Linkage-mpir)' == 'dynamic'">MSC_USE_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>mpir.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Linkage-mpir)' != ''">mpir.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories Condition="$(Configuration.IndexOf('Debug')) != -1">$(ProjectDir)..\..\..\..\..\mpir\bin\$(PlatformName)\Debug\$(PlatformToolset)\$(Linkage-mpir)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalLibraryDirectories Condition="$(Configuration.IndexOf('Release')) != -1">$(ProjectDir)..\..\..\..\..\mpir\bin\$(PlatformName)\Release\$(PlatformToolset)\$(Linkage-mpir)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       
-      <AdditionalDependencies>mpirxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="'$(Linkage-mpir)' != ''">mpirxx.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories Condition="$(Configuration.IndexOf('Debug')) != -1">$(ProjectDir)..\..\..\..\..\mpirxx\bin\$(PlatformName)\Debug\$(PlatformToolset)\$(Linkage-mpirxx)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalLibraryDirectories Condition="$(Configuration.IndexOf('Release')) != -1">$(ProjectDir)..\..\..\..\..\mpirxx\bin\$(PlatformName)\Release\$(PlatformToolset)\$(Linkage-mpirxx)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>      
     </Link>
