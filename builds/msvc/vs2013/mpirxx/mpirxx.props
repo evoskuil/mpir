@@ -34,5 +34,27 @@
         </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
+  
+  <!-- Dependencies -->
+
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(SolutionDir)mpir.import.props" />
+  </ImportGroup>
+ 
+  <PropertyGroup Condition="'$(DefaultLinkage)' == 'dynamic'">
+    <Linkage-mpir>dynamic</Linkage-mpir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DefaultLinkage)' == 'ltcg'">
+    <Linkage-mpir>ltcg</Linkage-mpir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(DefaultLinkage)' == 'static'">
+    <Linkage-mpir>static</Linkage-mpir>
+  </PropertyGroup>   
+
+  <!-- Messages -->
+
+  <Target Name="LinkageInfo" BeforeTargets="PrepareForBuild">
+    <Message Text="Linkage-mpir      : $(Linkage-mpir)" Importance="high"/>
+  </Target>  
 
 </Project>
